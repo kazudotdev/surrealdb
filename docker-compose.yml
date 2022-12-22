@@ -1,0 +1,11 @@
+version: '3'
+services:
+  surrealdb:
+    image: surrealdb/surrealdb:latest
+    container_name: db
+    ports:
+      - 8000:8000
+    environment:
+      - SURREALDB_USER=${SURREALDB_USER:-root}
+      - SURREALDB_PASS=${SURREALDB_PASS:-root}
+    command: start --user ${SURREALDB_USER} --pass ${SURREALDB_PASS} memory
